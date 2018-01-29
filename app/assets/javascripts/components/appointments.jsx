@@ -2,8 +2,8 @@ var Appointments = React.createClass({
   getInitialState: function() {
     return {
       appointments: this.props.appointments,
-      title: 'Team standup meeting',
-      appt_time: '25 January 2016 9am'
+      title: '',
+      appt_time: ''
     }
   },
 
@@ -36,6 +36,7 @@ var Appointments = React.createClass({
           input_appt_time={this.state.appt_time}
           onUserInput={this.handleUserInput}
           onFormSubmit={this.handleFormSubmit} />
+        <h2>Your Appointments</h2>
         <AppointmentsList appointments={this.state.appointments} />
       </div>
     )
