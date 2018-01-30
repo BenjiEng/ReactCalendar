@@ -2,7 +2,7 @@ class Label extends React.Component {
   render () {
     return (
       <div>
-        <div>{this.props.label}</div>
+        <h3>{this.props.label}</h3>
       </div>
     );
   }

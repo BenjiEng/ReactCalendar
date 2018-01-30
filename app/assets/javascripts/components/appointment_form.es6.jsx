@@ -29,7 +29,7 @@ class AppointmentForm extends React.Component {
 		    	<h2>Make a new appointment</h2>
 		    	<Label label='Enter a new title, date, and time.'/>
 		    	<form onSubmit={(e) => this.handleSubmit(e)}>
-		      		<input name='title' placeholder='Appointment Title'
+		      		<input className='form-input' name='title' placeholder='Appointment Title'
 		        		value={this.props.title}
 		        		onChange={(e) => this.handleChange(e)} 
 		        		required={true}/>
