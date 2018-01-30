@@ -32,8 +32,21 @@ class Appointments extends React.Component{
   }
 
   handleDeleteAppt(id) {
-    debugger
-    alert('delete fired');
+    $.ajax({
+      method: 'DELETE',
+      url: '/appointments/' + parseInt(id),
+      success: (data) => this.removeDeletedAppointment(data)
+    });
+  }
+
+  removeDeletedAppointment(appointment) {
+    var array = this.state.appointments;
+    var index = array.indexOf(appointment);
+    array.splice(index, 1);
+    this.setState({appointments: array.sort(function(a,b){
+        return new Date(a.appt_time) - new Date(b.appt_time);
+      })
+    });
   }
 
   render() {
@@ -45,7 +58,7 @@ class Appointments extends React.Component{
           onFormSubmit={() => this.handleFormSubmit()} />
         <h2>Your Appointments</h2>
         <AppointmentsList appointments={this.state.appointments} 
-                          onApptDelete={this.handleDeleteAppt} />
+                          onApptDelete={(id) => this.handleDeleteAppt(id)} />
       </div>
     )
   }

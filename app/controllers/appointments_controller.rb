@@ -13,6 +13,14 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def destroy
+    @appointment = Appointment.find_by_id(params[:id])
+    @copy = @appointment
+    @appointment.destroy
+    render json: @copy
+  end
+
+
   private
   def appointment_params
     params.require(:appointment).permit(:title, :appt_time)

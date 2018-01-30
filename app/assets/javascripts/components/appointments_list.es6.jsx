@@ -1,12 +1,18 @@
 class AppointmentsList extends React.Component {
+	handleClickEvent(id) {
+		this.props.onApptDelete(id);
+	}
+
 	render() {
 		return (
 			<div>
 				{this.props.appointments.map(function(appointment) {
 	    			return (
-	    				<Appointment appointment={appointment} key={appointment.id}/>
+	    				<Appointment appointment={appointment} 
+	    				key={appointment.id} 
+	    				handleClickFire={(id) => this.handleClickEvent(id)}/>
 					)
-	    		})}
+	    		}, this)}
     		</div>
 
 		)
