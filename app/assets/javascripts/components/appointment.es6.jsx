@@ -1,7 +1,6 @@
 class Appointment extends React.Component {
 	handleClick(e) {
 		var id = e.target.getAttribute('value');
-		debugger
 		this.props.handleClickFire(id);
 	}
 

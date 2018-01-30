@@ -25,7 +25,7 @@ class AppointmentForm extends React.Component {
 		};
 
 		return (
-		  		<div>
+		  		<div className='appointment-form'>
 		    	<h2>Make a new appointment</h2>
 		    	<Label label='Enter a new title, date, and time.'/>
 		    	<form onSubmit={(e) => this.handleSubmit(e)}>

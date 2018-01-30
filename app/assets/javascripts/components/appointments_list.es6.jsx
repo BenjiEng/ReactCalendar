@@ -5,7 +5,7 @@ class AppointmentsList extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className='appointments-list'>
 				{this.props.appointments.map(function(appointment) {
 	    			return (
 	    				<Appointment appointment={appointment} 

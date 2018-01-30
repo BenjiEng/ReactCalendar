@@ -41,7 +41,8 @@ class Appointments extends React.Component{
 
   removeDeletedAppointment(appointment) {
     var array = this.state.appointments;
-    var index = array.indexOf(appointment);
+    var index = array.map(function(appt) { return appt.id; }).indexOf(appointment.id);
+    debugger
     array.splice(index, 1);
     this.setState({appointments: array.sort(function(a,b){
         return new Date(a.appt_time) - new Date(b.appt_time);
@@ -56,7 +57,6 @@ class Appointments extends React.Component{
           input_appt_time={this.state.appt_time}
           onUserInput={(obj) => this.handleUserInput(obj)}
           onFormSubmit={() => this.handleFormSubmit()} />
-        <h2 className='appointments-header'>Your Appointments</h2>
         <AppointmentsList appointments={this.state.appointments} 
                           onApptDelete={(id) => this.handleDeleteAppt(id)} />
       </div>
